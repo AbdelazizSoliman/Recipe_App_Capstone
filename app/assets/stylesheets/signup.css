@@ -1,6 +1,6 @@
 .login-container {
   text-align: center;
-  background-color: rgb(207, 223, 219);
+  background-color: rgb(232, 236, 235);
   padding: 40px;
   width: 50%;
   margin-left: 20rem;
@@ -24,13 +24,14 @@
   border: none;
   font-size: 15px;
   width: 100%;
-  padding: 6px;
+  padding: 5px;
   border-radius: 10px;
   margin-top: 10px;
 }
 
-.field .input-field[type="email"],
-.field .input-field[type="password"] {
+.sign-form .field input[type="text"],
+.sign-form .field input[type="email"],
+.sign-form .field input[type="password"] {
   width: 100%;
 }
 
@@ -42,4 +43,8 @@
   padding: 5px;
   border-radius: 10px;
   margin-top: 10px;
+}
+
+.forgot {
+  text-decoration: none;
 }
