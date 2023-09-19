@@ -1,0 +1,22 @@
+<%= form_with(model: @ingredient, url: recipe_ingredient_path(@recipe, @ingredient), method: :patch) do |form| %>
+  <div>
+    <%= form.label :food_id, "Food" %>
+    <%= form.collection_select :food_id, Food.all, :id, :food, { selected: @ingredient.food.id } %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, value: @ingredient.quantity %>
+  </div>
+
+  <div>
+    <%= form.label :value %>
+    <%= form.text_field :value, value: @ingredient.value %>
+  </div>
+
+  <%= form.hidden_field :recipe_id, value: @recipe.id %>
+
+  <div>
+    <%= form.submit "Update Ingredient" %>
+  </div>
+<% end %>

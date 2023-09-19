@@ -1,0 +1,7 @@
+<!-- app/views/recipes/public_list.html.erb -->
+<h1>Public Recipe List</h1>
+<ul>
+  <% @public_recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe %></li>
+  <% end %>
+</ul>
