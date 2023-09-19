@@ -1,0 +1,13 @@
+<%= stylesheet_link_tag 'recipes_list', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<h1>Recipes List</h1>
+
+<% @recipes.each do |recipe| %>
+  <div  class="recipes-list">
+    <h2 class="header"><%= link_to recipe.name, recipe %></h2>
+    <p class="description"><%= recipe.description %></p>
+    <% if recipe.user == current_user %>
+      <%= link_to "Remove", recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-button" %>
+    <% end %>
+  </div>
+<% end %>
