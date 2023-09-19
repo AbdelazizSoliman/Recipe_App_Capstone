@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_130615) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_215444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_130615) do
     t.string "food"
     t.string "measurement_unit"
     t.integer "unit_price"
+    t.integer "quantity"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
@@ -35,12 +36,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_130615) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
+  create_table "recipe_foods", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "recipe_id", null: false
+    t.bigint "food_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_recipe_foods_on_food_id"
+    t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "public"
     t.boolean "public_recipe", default: false
     t.integer "preparation_time", default: 0
     t.integer "cooking_time", default: 0
@@ -62,5 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_130615) do
   add_foreign_key "foods", "users"
   add_foreign_key "ingredients", "foods"
   add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipe_foods", "foods"
+  add_foreign_key "recipe_foods", "recipes"
   add_foreign_key "recipes", "users"
 end

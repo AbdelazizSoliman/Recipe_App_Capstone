@@ -13,6 +13,8 @@
     <%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-button" %>
 
 <%= link_to "Add Ingredient", new_recipe_ingredient_path(@recipe), class: "add-button" %>
+          <%= link_to 'generate shopping list', general_shopping_list_path , class: "add-shoppinng-button"%>
+    
 
   <% else %>
     <% if @recipe.user == current_user || @recipe.public_recipe %>

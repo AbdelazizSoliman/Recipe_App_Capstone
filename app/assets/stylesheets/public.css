@@ -56,3 +56,14 @@ table {
   background-color: rgb(29, 182, 209);
   color: aliceblue;
 }
+
+.add-shoppinng-button {
+  text-decoration: none;
+  border: 1px solid gray;
+  margin-top: 30px;
+  float: left;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: rgb(29, 182, 209);
+  color: aliceblue;
+}

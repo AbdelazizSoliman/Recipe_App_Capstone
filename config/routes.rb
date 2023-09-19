@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   
   devise_for :users
   get '/public_recipes', to: 'recipes#public_list'
+  get 'general_shopping_list', to: 'shopping_list#index', as: 'general_shopping_list'
   root to: "users#index"
 end
