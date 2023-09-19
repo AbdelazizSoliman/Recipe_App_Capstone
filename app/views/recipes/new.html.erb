@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag 'recipes', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<h1>Add New Recipe</h1>
+
+<div class="new-recipe-container">
+<%= form_with model: @recipe, url: recipes_path do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Recipe" %>
+  </div>
+<% end %>
+<div>
