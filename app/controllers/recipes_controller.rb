@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, only: [:destroy, :toggle_public, :new_food]
+  before_action :authenticate_user!, only: %i[destroy toggle_public new_food]
 
   def index
     @recipes = current_user.recipes

@@ -1,11 +1,10 @@
 class IngredientsController < ApplicationController
-
   def new
     @recipe = Recipe.find(params[:recipe_id]) # Assuming you have a route like /recipes/:recipe_id/ingredients/new
     @ingredient = Ingredient.new
   end
 
-   def create
+  def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
       redirect_to @ingredient.recipe, notice: 'Ingredient was successfully added.'
@@ -17,12 +16,12 @@ class IngredientsController < ApplicationController
   def edit
     @ingredient = Ingredient.find(params[:id])
     @recipe = Recipe.find(params[:recipe_id])
-  end  
+  end
 
   def update
     @ingredient = Ingredient.find(params[:id])
     if @ingredient.update(ingredient_params)
-      redirect_to recipe_path(params[:recipe_id]), notice: "Ingredient updated successfully."
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Ingredient updated successfully.'
     else
       render :edit
     end
@@ -32,9 +31,9 @@ class IngredientsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.find(params[:id])
     @ingredient.destroy
-    redirect_to recipe_path(params[:recipe_id]), notice: "Ingredient updated successfully."
+    redirect_to recipe_path(params[:recipe_id]), notice: 'Ingredient updated successfully.'
   end
-   
+
   private
 
   def ingredient_params
