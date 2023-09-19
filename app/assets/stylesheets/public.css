@@ -1,0 +1,56 @@
+.recipe-details {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    height: 350px;
+    width: 80%;
+  }
+  
+  .time-info {
+    font-weight: bold;
+  }
+  
+  .toggle-button,
+  .delete-button,
+  .add-ingredient-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .ingredients-section {
+    margin-top: 20px;
+    float: right;
+  }
+
+  /* Add this to your CSS file (e.g., public.css) */
+.toggle-button,
+.add-ingredient-button {
+  float: right;
+  margin-left: 10px; /* Add some space between the buttons */
+  margin-right: 0px;
+}
+.buttons{
+  display: flex;
+  gap: 12px;
+}
+
+table{
+  margin-left: 1rem;
+}
+.headers{
+  margin-left: 1rem;
+}
+.add-button{
+  text-decoration: none;
+  border: 1px solid gray;
+  margin-top: 30px;
+  float: right;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: rgb(29, 182, 209);
+  color: aliceblue;
+}
+  

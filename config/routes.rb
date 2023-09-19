@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  resources :foods, only: [:index, :new, :create,:show, :destroy]
-  resources :recipes, only: [:index, :show, :new,:create, :destroy]
+  resources :foods, only: [:index, :new, :create, :show, :destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+    resources :ingredients, only: [:new,  :create, :edit, :update, :destroy]
+    
+    member do
+      patch 'toggle_public'
+      get 'new_food'
+    end
+  end
+  
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  get '/public_recipes', to: 'recipes#public_list'
   root to: "users#index"
 end
