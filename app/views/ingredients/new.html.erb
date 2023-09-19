@@ -1,0 +1,22 @@
+<%= form_with(model: @ingredient, url: recipe_ingredients_path(@recipe)) do |form| %>
+  <div>
+    <%= form.label :food_id, "Food" %>
+    <%= form.collection_select :food_id, Food.all, :id, :food %>
+  </div>
+
+  <div>
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= form.label :value %>
+    <%= form.number_field :value %>
+  </div>
+
+  <%= form.hidden_field :recipe_id, value: @recipe.id %>
+
+  <div>
+    <%= form.submit "Add Ingredient" %>
+  </div>
+<% end %>
