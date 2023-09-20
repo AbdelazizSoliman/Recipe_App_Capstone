@@ -7,6 +7,8 @@ gem 'pg'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'rspec-rails'
+
 gem 'devise'
 
 gem 'bootstrap', '~> 5.1.3'
