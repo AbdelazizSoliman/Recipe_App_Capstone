@@ -6,7 +6,7 @@ class ShoppingListController < ApplicationController
     foods.each do |food|
       shopping_list_item = {
         food: food.food,
-        quantity: 1,
+        quantity: calculate_missing_food(food),
         unit: food.measurement_unit,
         unit_price: food.unit_price
       }
@@ -18,10 +18,6 @@ class ShoppingListController < ApplicationController
   private
 
   def calculate_missing_food(food)
-    missing_food = -food.quantity.to_i
-    food.recipe_foods.each do |recipe_food|
-      missing_food += recipe_food.quantity.to_i
-    end
-    missing_food
+    food.quantity.to_i
   end
 end

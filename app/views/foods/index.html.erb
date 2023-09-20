@@ -13,6 +13,7 @@
     <th>Food</th>
     <th>Measurement Unit</th>
     <th>Unit Price</th>
+    <th>Quantity</th>
     <th>Actions</th>
   </tr>
 <% @foods.each do |food| %>
@@ -20,6 +21,7 @@
       <td><%= food.food %></td>
       <td><%= food.measurement_unit %></td>
       <td>$<%= food.unit_price %></td>
+      <td><%= food.quantity %></td>
       <td>
         <%# <%= link_to "Show", food %> 
         <%# <%= link_to "Edit", edit_food_path(food) %> 
