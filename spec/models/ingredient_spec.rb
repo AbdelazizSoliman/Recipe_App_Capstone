@@ -4,7 +4,6 @@ require 'rails_helper'
 
 RSpec.describe Ingredient, type: :model do
   describe 'validations' do
-
     it 'is not valid without a quantity' do
       ingredient = Ingredient.new(
         value: 'grams'

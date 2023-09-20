@@ -2,21 +2,23 @@ require 'rails_helper'
 
 RSpec.describe RecipeFood, type: :model do
   let(:food) { Food.create(food: 'Test Food', measurement_unit: 'g', quantity: 100, unit_price: 5) }
-  let(:recipe) { Recipe.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30, cooking_time: 45) }
+  let(:recipe) do
+    Recipe.create(name: 'Test Recipe', description: 'A test recipe', preparation_time: 30, cooking_time: 45)
+  end
 
   describe 'validations' do
     it 'is not valid without a quantity' do
       recipe_food = RecipeFood.new(
-        food: food,
-        recipe: recipe
+        food:,
+        recipe:
       )
       expect(recipe_food).not_to be_valid
     end
 
     it 'is not valid with a negative quantity' do
       recipe_food = RecipeFood.new(
-        food: food,
-        recipe: recipe,
+        food:,
+        recipe:,
         quantity: -1
       )
       expect(recipe_food).not_to be_valid
@@ -24,7 +26,7 @@ RSpec.describe RecipeFood, type: :model do
 
     it 'is not valid without a food' do
       recipe_food = RecipeFood.new(
-        recipe: recipe,
+        recipe:,
         quantity: 2
       )
       expect(recipe_food).not_to be_valid
@@ -32,7 +34,7 @@ RSpec.describe RecipeFood, type: :model do
 
     it 'is not valid without a recipe' do
       recipe_food = RecipeFood.new(
-        food: food,
+        food:,
         quantity: 2
       )
       expect(recipe_food).not_to be_valid

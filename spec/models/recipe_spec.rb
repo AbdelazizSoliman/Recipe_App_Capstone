@@ -3,7 +3,6 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   describe 'validations' do
-
     it 'is not valid without a name' do
       recipe = Recipe.new(
         description: 'A test recipe',
