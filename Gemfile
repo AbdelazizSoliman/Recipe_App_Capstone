@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.2'
 
 gem 'pg'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rspec-rails'
 
 gem 'devise'
 
@@ -15,6 +17,8 @@ gem 'rails', '~> 7.0.8'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
+
+gem 'cancancan', '~> 3.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
