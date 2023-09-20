@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'addFood', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<h1>Add New Food</h1>
+
+<div class="form-container">
+  <%= form_with model: @food, url: foods_path do |form| %>
+    <div>
+      <%= form.label :food %>
+      <%= form.text_field :food %>
+    </div>
+
+    <div>
+      <%= form.label :unit_price %>
+      <%= form.number_field :unit_price %>
+    </div>
+
+     <div>
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+    </div>
+
+    <div>
+      <%= form.label :measurement_unit %>
+      <%= form.text_field :measurement_unit %>
+    </div>
+
+    <div>
+      <%= form.submit "Add Food" %>
+    </div>
+  <% end %>
+</div>

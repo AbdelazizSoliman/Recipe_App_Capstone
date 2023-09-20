@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'public', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class="recipe-details">
+  <h1><%= @recipe.name %></h1>
+  <p><%= @recipe.description %></p>
+  <p class="time-info">Preparation Time: <%= @recipe.preparation_time %> hours</p>
+  <p class="time-info">Cooking Time: <%= @recipe.cooking_time %> hours</p>
+
+  <% if @recipe.user == current_user %>
+    <%= form_with model: @recipe, url: toggle_public_recipe_path(@recipe), method: :patch do |form| %>
+      <%= form.submit @recipe.public_recipe ? "Make Private" : "Make Public", class: "toggle-button" %>
+    <% end %>
+    <%= button_to "Destroy this recipe", @recipe, method: :delete, class: "delete-button" %>
+
+<%= link_to "Add Ingredient", new_recipe_ingredient_path(@recipe), class: "add-button" %>
+          <%= link_to 'generate shopping list', general_shopping_list_path , class: "add-shoppinng-button"%>
+    
+
+  <% else %>
+    <% if @recipe.user == current_user || @recipe.public_recipe %>
+      <!-- Display recipe details -->
+    <% else %>
+      <p>This recipe is private.</p>
+    <% end %>
+  <% end %>
+</div>
+
+<h2 class="headers">Ingredients</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <tr>
+        <td><%= ingredient.food.food %></td>
+        <td><%= ingredient.quantity %></td>
+        <td><%= ingredient.value %></td>
+        <td>
+        <div class="buttons">
+          <%= link_to "Edit", edit_recipe_ingredient_path(@recipe, ingredient) %>
+          <%= button_to 'Delete', recipe_ingredient_path(@recipe, ingredient), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+

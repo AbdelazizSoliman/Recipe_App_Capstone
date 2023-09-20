@@ -1,0 +1,34 @@
+<%= stylesheet_link_tag 'food', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="table-info">
+
+<div class="new-food-container">
+  <%= link_to "ADD FOOD", new_food_path, class: "new-food" %>
+</div>
+
+<table border="2">
+  <tr>
+    <th>Food</th>
+    <th>Measurement Unit</th>
+    <th>Unit Price</th>
+    <th>Quantity</th>
+    <th>Actions</th>
+  </tr>
+<% @foods.each do |food| %>
+    <tr>
+      <td><%= food.food %></td>
+      <td><%= food.measurement_unit %></td>
+      <td>$<%= food.unit_price %></td>
+      <td><%= food.quantity %></td>
+      <td>
+        <%# <%= link_to "Show", food %> 
+        <%# <%= link_to "Edit", edit_food_path(food) %> 
+        <%= link_to "Delete", food, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-food" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div>
+

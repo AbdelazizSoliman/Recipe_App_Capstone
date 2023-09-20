@@ -1,0 +1,35 @@
+/* app/assets/stylesheets/recipes.css */
+
+/* Style the form container */
+.new-recipe-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Style form inputs and labels */
+.new-recipe-container label,
+.new-recipe-container input,
+.new-recipe-container textarea {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Style submit button */
+.new-recipe-container input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style submit button on hover */
+.new-recipe-container input[type="submit"]:hover {
+  background-color: #45a049;
+}

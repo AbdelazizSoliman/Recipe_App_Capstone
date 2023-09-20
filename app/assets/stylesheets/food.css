@@ -1,0 +1,44 @@
+.table-info {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  width: 80%;
+  margin-bottom: 13.5rem;
+}
+
+.new-food-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.new-food {
+  text-decoration: none;
+  color: rgb(196, 190, 190);
+  font-weight: 500;
+  font-size: 1.3rem;
+  background-color: blue;
+  border: 1px solid gray;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+tr {
+  background-color: gray;
+}
+
+tr:nth-child(even) td {
+  background-color: white;
+}
+
+tr:nth-child(odd) td {
+  background-color: rgb(216, 212, 212);
+}
+
+.delete-food {
+  color: red;
+}
